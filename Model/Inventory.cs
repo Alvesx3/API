@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace API.Model
 {
-    public class Chicara:Base
+    public class Inventory:Base
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
+        public int Amount { get; set; }
     }
 }

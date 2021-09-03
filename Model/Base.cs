@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace API.Model
 {
-    public class Chicara:Base
+    public abstract class Base
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
+        public int Id { get; set; }
+
     }
 }

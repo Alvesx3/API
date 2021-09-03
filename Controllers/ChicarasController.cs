@@ -12,7 +12,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ChicarasController : ControllerBase
     {
         [HttpGet]
         public List<Chicara> Get()
@@ -20,7 +20,7 @@ namespace API.Controllers
             List<Chicara> list = new List<Chicara>();
             using(var context = new ChicaraContext())
             {
-                list = context.Chicaras.ToList();
+                list = context.Chicara.ToList();
             }
             return list;
         }
@@ -32,7 +32,7 @@ namespace API.Controllers
             Chicara model = new Chicara();
             using (var context = new ChicaraContext())
             {
-                model = context.Chicaras.Find(id);
+                model = context.Chicara.Find(id);
             }
             return model;
         }
@@ -43,7 +43,7 @@ namespace API.Controllers
         {
             using (var context = new ChicaraContext())
             {
-                context.Chicaras.Add(model);
+                context.Chicara.Add(model);
                 context.SaveChanges();
             }
         }
@@ -54,7 +54,7 @@ namespace API.Controllers
         {
             using (var context = new ChicaraContext())
             {
-                context.Entry<Chicara>(model).State = System.Data.Entity.EntityState.Modified;
+                context.Entry<Chicara>(model).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 context.SaveChanges();
             }
         }
@@ -65,7 +65,7 @@ namespace API.Controllers
         {
             using (var context = new ChicaraContext())
             {
-                context.Entry<Chicara>(Get(id)).State = System.Data.Entity.EntityState.Deleted;
+                context.Entry<Chicara>(Get(id)).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                 context.SaveChanges();
             }
         }
